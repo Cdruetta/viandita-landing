@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F6EFE4" />
+    <meta
+      name="description"
+      content="Viandas Casa Mia: menú diario, pedidos por WhatsApp y abonos mensuales. Micro app web 100% frontend, sin backend propio."
+    />
+    <title>Viandas Casa Mia — Menú, pedidos y abonos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+
+    <header class="sitio-header">
+      <div class="contenedor sitio-header__interno">
+        <a class="marca" href="#inicio">Viandas Casa Mia</a>
+        <nav aria-label="Navegación principal">
+          <a href="#que-hace">Qué hace</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#configuracion">Configuración</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero contenedor" id="inicio" aria-labelledby="hero-titulo">
+        <p class="etiqueta"><span class="punto" aria-hidden="true"></span>Etapa 4 de 4 · completa</p>
+        <h1 id="hero-titulo">Menú del día, pedidos y abonos en una sola app.</h1>
+        <p class="hero__bajada">
+          Todo funciona en el navegador. El menú y los planes salen de una planilla pública; los pedidos y abonos del dueño quedan en su dispositivo.
+        </p>
+        <div class="acciones">
+          <a class="boton" href="#como-funciona">Ver cómo funciona</a>
+          <!-- Reemplazá esta URL por la de tu repositorio en GitHub. -->
+          <a class="boton boton--secundario" href="https://github.com/">Ver el código</a>
+        </div>
+      </section>
+
+      <section class="seccion contenedor" id="que-hace" aria-labelledby="que-hace-titulo">
+        <div class="seccion__cabecera">
+          <h2 id="que-hace-titulo">Qué hace</h2>
+          <p>Tres cosas, sin vueltas.</p>
+        </div>
+        <div class="grilla">
+          <article class="ficha">
+            <h3>Pedidos del día</h3>
+            <p>El menú de hoy y de los próximos días, con stock y cantidades. El pedido se arma por fecha y sale listo para WhatsApp.</p>
+          </article>
+          <article class="ficha">
+            <h3>Abono mensual</h3>
+            <p>Planes activos, alta de abonados y seguimiento de entregas y cobros. El mensaje para el dueño ya viene redactado.</p>
+          </article>
+          <article class="ficha">
+            <h3>Panel del dueño</h3>
+            <p>Pedidos, abonados, resumen de ventas y exportación de datos. Todo se guarda en IndexedDB, sin servidor ni sincronización.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="seccion seccion--surface" id="como-funciona" aria-labelledby="como-funciona-titulo">
+        <div class="contenedor">
+          <div class="seccion__cabecera">
+            <h2 id="como-funciona-titulo">Cómo funciona</h2>
+            <p>De la planilla al pedido en cuatro pasos.</p>
+          </div>
+          <ol class="pasos">
+            <li><span class="pasos__numero" aria-hidden="true">01</span><div><h3>Cargás el menú</h3><p>Publicás dos pestañas CSV: <code>Menu</code> y <code>Planes</code>. Pegás las URLs en <code>src/config.js</code>.</p></div></li>
+            <li><span class="pasos__numero" aria-hidden="true">02</span><div><h3>La app muestra los platos</h3><p>Lee ambos CSV al abrir y cada 5 minutos. Si no hay red, muestra la última copia guardada.</p></div></li>
+            <li><span class="pasos__numero" aria-hidden="true">03</span><div><h3>El cliente arma el pedido</h3><p>Elige cantidades, completa sus datos y abre WhatsApp con el texto ya escrito.</p></div></li>
+            <li><span class="pasos__numero" aria-hidden="true">04</span><div><h3>Vos gestionás el día</h3><p>Con el PIN entrás al panel, marcás entregas y cobros, y exportás backups cuando quieras.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="seccion contenedor" id="configuracion" aria-labelledby="configuracion-titulo">
+        <div class="seccion__cabecera">
+          <h2 id="configuracion-titulo">Configuración</h2>
+          <p>Un solo archivo para personalizar todo.</p>
+        </div>
+        <div class="config">
+          <pre><code>export const CONFIG = {
+  NOMBRE_NEGOCIO: "Viandas Casa Mia",
+  WHATSAPP: "5493584000000",
+  CSV_MENU_URL: "",
+  CSV_PLANES_URL: "",
+  HORA_CORTE_PEDIDOS: "10:00",
+  PIN_ADMIN: "1234",
+  REFRESCO_MENU_MIN: 5,
+  MOSTRAR_PROXIMOS_DIAS: 5
+};</code></pre>
+          <div class="config__notas">
+            <p>Si las URLs quedan vacías, la app usa los CSV de ejemplo. Podés probar las tres pestañas sin configurar nada.</p>
+            <p>El PIN es una barrera simple, no seguridad real. Para instalar la app, corré <code>npm run build</code> y publicá <code>dist/</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="banda" aria-label="Estado del proyecto">
+        <div class="contenedor banda__interno">
+          <div>
+            <h2>Proyecto terminado</h2>
+            <p>React + Vite, PWA instalable, modo offline y diseño mobile-first.</p>
+          </div>
+          <!-- Reemplazá esta URL por la de tu repositorio en GitHub. -->
+          <a class="boton boton--secundario" href="https://github.com/">Abrir el repositorio</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="sitio-footer">
+      <div class="contenedor sitio-footer__interno">
+        <p>Viandas Casa Mia · cocina casera, datos en tu dispositivo.</p>
+        <nav aria-label="Enlaces del pie">
+          <a href="#inicio">Volver arriba</a>
+          <a href="#configuracion">Configuración</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
